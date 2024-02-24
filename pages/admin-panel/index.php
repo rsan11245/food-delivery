@@ -1,4 +1,3 @@
-<?php  include '../../app/db/config.php'?>
 <!doctype html>
 <html lang="en">
 <head>
