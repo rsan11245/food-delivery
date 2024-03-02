@@ -41,7 +41,7 @@
             </div>
             <i class="fas fa-bell"></i>
             <div class="user">
-                <img src="../../images/1077114.png" alt="">
+                <img src="../../images/default_user.png" alt="">
             </div>
         </div>
         <div class="cards">

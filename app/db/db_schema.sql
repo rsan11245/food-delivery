@@ -7,9 +7,9 @@ CREATE TABLE `roles`
 CREATE TABLE `users`
 (
     id        INT PRIMARY KEY AUTO_INCREMENT,
-    firstName VARCHAR(50)  NOT NULL,
-    lastName  VARCHAR(50)  NOT NULL,
-    email     VARCHAR(100) NOT NULL UNIQUE,
+    firstName VARCHAR(50),
+    lastName  VARCHAR(50),
+    email     VARCHAR(100) UNIQUE,
     password  VARCHAR(100) NOT NULL,
     phone     VARCHAR(100) NOT NULL UNIQUE,
     role_id   INT          NOT NULL DEFAULT 2,
