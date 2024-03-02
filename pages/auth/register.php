@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -12,7 +15,7 @@
 <div class="center">
     <div class="form">
         <h1>Регистрация</h1>
-        <form action="#" method="post">
+        <form action="../../app/auth/index.php" method="post">
             <div class="txt_field">
                 <input type="text" name="phone" id="phone" required>
                 <span></span>
@@ -28,7 +31,7 @@
                 <span></span>
                 <label for="confirm_password">Повторите пароль</label>
             </div>
-            <input type="submit" value="Регистрация">
+            <input type="submit" name="registration" value="Регистрация">
             <div class="signup_link">
                 <a href="#">Войти в существующий аккаунт</a>
             </div>
