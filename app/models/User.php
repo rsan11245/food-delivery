@@ -1,7 +1,7 @@
 <?php
 
 namespace app\models;
-include '../db/config.php';
+include_once  dirname(__FILE__, 2) .  '/db/config.php';
 
 class User
 {
@@ -64,6 +64,22 @@ class User
         $query = $conn->prepare("INSERT INTO `users`(`phone`, `password`) VALUES (?, ?)");
 
         return $query->execute([$phone, $password]);
+    }
+
+    public static function login($phone, $password)
+    {
+        $conn = $GLOBALS['conn'];
+        $query = $conn->prepare("SELECT * FROM `users` WHERE phone = ?");
+        $query->execute([$phone]);
+        $res = $query->fetch(\PDO::FETCH_ASSOC);
+        if (!$res) {
+            return false;
+        }
+        $checkPassword = password_verify($password, $res['password']);
+        if (!$checkPassword) {
+            return false;
+        }
+        return self::newInstance($res);
     }
 
 }

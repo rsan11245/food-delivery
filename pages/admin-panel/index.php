@@ -1,3 +1,9 @@
+<?php
+include '../../app/auth/Auth.php';
+    if (!Auth::checkAdmin()){
+        header('location: /');
+    }
+?>
 <!doctype html>
 <html lang="en">
 <head>
