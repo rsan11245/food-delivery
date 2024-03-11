@@ -69,6 +69,22 @@ body {
     transition: .5s;
 }
 
+.input-error {
+    position: absolute;
+    color: #ef4a82;
+    top: 50%;
+    left: 80px;
+    transform: translateY(-50%);
+    transition: .5s;
+    /*display: none;*/
+}
+
+.txt_field input:focus ~ p.input-error,
+.txt_field input:valid ~ p.input-error
+{
+    top: -5px;
+}
+
 .txt_field span::before {
     content: '';
     position: absolute;
@@ -128,8 +144,9 @@ body {
 
 
 
-
-
+/*input#password ~ p.input-error {*/
+/*    color: blue;*/
+/*}*/
 
 
 

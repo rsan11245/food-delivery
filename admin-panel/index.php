@@ -12,7 +12,7 @@ include '../../app/auth/Auth.php';
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="../../assets/css/admin-panel.css">
+    <link rel="stylesheet" href="../assets/css/admin-panel.css">
 </head>
 <body>
 
@@ -47,7 +47,7 @@ include '../../app/auth/Auth.php';
             </div>
             <i class="fas fa-bell"></i>
             <div class="user">
-                <img src="../../images/default_user.png" alt="">
+                <img src="../images/default_user.png" alt="">
             </div>
         </div>
         <div class="cards">

@@ -9,13 +9,13 @@ session_start();
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Регистрация</title>
-    <link rel="stylesheet" href="../../assets/css/auth.css">
+    <link rel="stylesheet" href="../assets/css/auth.css">
 </head>
 <body>
 <div class="center">
     <div class="form">
         <h1>Регистрация</h1>
-        <form action="../../app/auth/index.php" method="post">
+        <form action="../app/auth/index.php" method="post">
             <div class="txt_field">
                 <input type="text" name="phone" id="phone" required>
                 <span></span>
@@ -33,7 +33,7 @@ session_start();
             </div>
             <input type="submit" name="registration" value="Регистрация">
             <div class="signup_link">
-                <a href="#">Войти в существующий аккаунт</a>
+                <a href="login.php">Войти в существующий аккаунт</a>
             </div>
         </form>
 
