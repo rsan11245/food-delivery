@@ -9,10 +9,13 @@
     <link rel="stylesheet" href="../assets/css/auth.css">
 </head>
 <body>
+<div class="popup display-none">
+    <p class="message-text">text</p>
+</div>
 <div class="center">
     <div class="form">
         <h1>Вход</h1>
-        <form action="../app/auth/index.php" method="post" id="login-form">
+        <form method="post" id="login-form">
             <div class="txt_field">
 
                 <input type="tel" name="phone" id="phone" required>

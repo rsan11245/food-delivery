@@ -31,7 +31,7 @@ class User
         return $user;
     }
 
-    public static function findById(int $id)
+    public static function findById(int $id): ?User
     {
         $conn = $GLOBALS['conn'];
         $query = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
@@ -40,11 +40,11 @@ class User
         if ($res) {
             return self::newInstance($res);
         }else{
-            //TODO обшибка бд
+            return null;
         }
     }
 
-    public static function findByPhone(string $phone)
+    public static function findByPhone(string $phone): ?User
     {
         $conn = $GLOBALS['conn'];
         $query = $conn->prepare("SELECT * FROM `users` WHERE phone = ?");
@@ -53,7 +53,7 @@ class User
         if ($res) {
             return self::newInstance($res);
         }else{
-            //TODO обшибка бд
+            return null;
         }
 
     }

@@ -1,5 +1,5 @@
 <?php
-include '../models/User.php';
+include_once '../models/User.php';
 
 use app\models\User;
 
@@ -27,7 +27,7 @@ class UserValidation
 
         if (User::findByPhone($phone)) {
             $res['success'] = false;
-            $res['errors']['message'] = 'Пользователь с таким телефоном уже существует';
+            $res['errors']['phone'] = 'Пользователь с таким телефоном уже существует';
             return $res;
         }
 
@@ -45,6 +45,10 @@ class UserValidation
     {
         $res = ['success' => true, 'errors' => []];
 
+//        if (!preg_match('^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$', $phone)) {
+//            $res['success'] = false;
+//            $res['errors']['phone'] = 'Телефон заполнен неверно';
+//        }
         if (strlen($phone) < 10 || strlen($phone) > 100) {
             $res['success'] = false;
             $res['errors']['phone'] = 'Телефон заполнен неверно';
@@ -62,7 +66,7 @@ class UserValidation
         }
         if (!User::findByPhone($phone)) {
             $res['success'] = false;
-            $res['errors']['message'] = 'Пользователь с таким телефоном не существует';
+            $res['errors']['phone'] = 'Пользователь с таким телефоном не существует';
             return $res;
         }
         return $res;

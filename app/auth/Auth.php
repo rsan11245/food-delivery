@@ -11,16 +11,17 @@ class Auth {
 
 
 
-    public function register($phone, $password): void
+    public function register($phone, $password): bool
     {
         session_start();
         $passwordHash = password_hash($password, PASSWORD_DEFAULT);
         $res =  User::register($phone, $passwordHash);
         if (!$res) {
-            //TODO обшибка бд
+            return false;
         } else {
             $user = User::findByPhone($phone);
             $_SESSION['user_id'] = $user->id;
+            return true;
         }
     }
 
@@ -30,9 +31,10 @@ class Auth {
 
         $user = User::login($phone, $password);
         if (!$user) {
-            //TODO обшибка бд
+            return false;
         } else {
             $_SESSION['user_id'] = $user->id;
+            return true;
         }
     }
 

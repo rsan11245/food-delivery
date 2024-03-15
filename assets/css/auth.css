@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');*/
 
 * {
     margin: 0;
@@ -143,12 +143,23 @@ body {
 }
 
 
+.popup {
+    position: absolute;
+    top: 25px;
+    right: 50px;
+    min-width: 250px;
+    min-height: 100px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff0000;
+}
 
-/*input#password ~ p.input-error {*/
-/*    color: blue;*/
-/*}*/
 
-
+.display-none {
+    display: none;
+}
 
 
 

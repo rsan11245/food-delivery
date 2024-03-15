@@ -15,20 +15,23 @@ session_start();
 <div class="center">
     <div class="form">
         <h1>Регистрация</h1>
-        <form action="../app/auth/index.php" method="post">
+        <form method="post" id="register-form">
             <div class="txt_field">
                 <input type="text" name="phone" id="phone" required>
                 <span></span>
+                <p class="input-error"></p>
                 <label for="phone">Телефон</label>
             </div>
             <div class="txt_field">
                 <input type="password" name="password" id="password" required>
                 <span></span>
+                <p class="input-error"></p>
                 <label for="password">Пароль</label>
             </div>
             <div class="txt_field">
                 <input type="password" name="confirm_password" id="confirm_password" required>
                 <span></span>
+                <p class="input-error"></p>
                 <label for="confirm_password">Повторите пароль</label>
             </div>
             <input type="submit" name="registration" value="Регистрация">
@@ -39,5 +42,8 @@ session_start();
 
     </div>
 </div>
+
+<script src="../assets/js/jquery-3.7.1.min.js"></script>
+<script src="../assets/js/auth.js"></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
 <?php
+
 include_once 'Auth.php';
 include_once '../validation/UserValidation.php';
 if (isset($_POST['registration'])) {
@@ -7,7 +8,7 @@ if (isset($_POST['registration'])) {
     login();
 }
 else {
-    header('location: /pages/auth/register.php');
+    header('location: /auth/register.php');
 }
 
 
@@ -21,14 +22,19 @@ function registration(): void
     $validationResponse = UserValidation::registration($phone, $password, $confirmPassword);
     if ($validationResponse['success']) {
         $auth = new Auth();
-        $auth->register($phone, $password);
+
+        if ($auth->register($phone, $password)) {
+            echo json_encode(['location' => '/']);
+        } else {
+            echo json_encode(['errors' => ['message' => 'Не удалось зарегистрироваться']]);
+        }
+        echo json_encode(['location' => '/']);
     } else {
-        //TODO вернуть $validationResponse
+        echo json_encode(['errors' => $validationResponse['errors']]);
     }
-    header('location: /');
 }
 
-function login()
+function login() : void
 {
     $phone = $_POST['phone'];
     $password = $_POST['password'];
@@ -36,11 +42,17 @@ function login()
     $validationResponse = UserValidation::login($phone, $password);
     if ($validationResponse['success']) {
         $auth = new Auth();
-        $auth->login($phone, $password);
+
+        if ($auth->login($phone, $password)) {
+            echo json_encode(['location' => '/']);
+        } else {
+            echo json_encode(['errors' => ['message' => 'Не удалось войти']]);
+        }
+
     } else {
-        //TODO вернуть $validationResponse
+        echo json_encode(['errors' => $validationResponse['errors']]);
     }
-    header('location: /');
+
 }
 
 
