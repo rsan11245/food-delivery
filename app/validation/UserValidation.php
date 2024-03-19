@@ -1,5 +1,7 @@
 <?php
-include_once '../models/User.php';
+namespace app\validation;
+
+include_once dirname(__FILE__, 2) . '/models/User.php';
 
 use app\models\User;
 
@@ -41,7 +43,7 @@ class UserValidation
         return $res;
     }
 
-    public static function login($phone, $password)
+    public static function login($phone, $password): array
     {
         $res = ['success' => true, 'errors' => []];
 

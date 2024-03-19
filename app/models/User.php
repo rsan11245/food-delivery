@@ -31,6 +31,19 @@ class User
         return $user;
     }
 
+    public static function all() : array
+    {
+        $conn = $GLOBALS['conn'];
+        $query = $conn->prepare("SELECT * FROM `users`");
+        $query->execute();
+        $res = $query->fetchAll(\PDO::FETCH_ASSOC);
+        $users = [];
+        foreach ($res as $user) {
+            $users[] = self::newInstance($user);
+        }
+        return $users;
+    }
+
     public static function findById(int $id): ?User
     {
         $conn = $GLOBALS['conn'];

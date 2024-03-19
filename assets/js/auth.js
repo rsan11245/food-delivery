@@ -51,13 +51,33 @@ function display_errors(errors) {
     }
 }
 
+// function login_request(phone, password) {
+//     $.ajax('/app/auth/index.php', {
+//         type: 'POST',
+//         data: {login: '', phone, password},
+//         success: data => {
+//             data = JSON.parse(data)
+//             if (data.errors) {
+//                 display_errors(data.errors)
+//                 if (data.errors.message) {
+//                     showPopup(data.errors.message)
+//                 }
+//
+//             } else {
+//                 window.location.replace(data.location);
+//             }
+//         }
+//     })
+// }
+
 function login_request(phone, password) {
-    $.ajax('/app/auth/index.php', {
+    $.ajax('/routes/routes.php', {
         type: 'POST',
-        data: {login: '', phone, password},
+        data: {path: '/login', phone, password},
         success: data => {
+            console.log(data)
             data = JSON.parse(data)
-            if (data.errors) {
+            if (data.errors && data.errors.length > 0) {
                 display_errors(data.errors)
                 if (data.errors.message) {
                     showPopup(data.errors.message)
@@ -106,12 +126,13 @@ function validate_register(phone_input, password_input, confirm_password_input) 
 
 
 function register_request(phone, password, confirm_password) {
-    $.ajax('/app/auth/index.php', {
+    $.ajax('/routes/routes.php', {
         type: 'POST',
-        data: {registration: '', phone, password, confirm_password},
+        data: {path: '/register', phone, password, confirm_password},
         success: data => {
+            console.log(data)
             data = JSON.parse(data)
-            if (data.errors) {
+            if (data.errors && data.errors.length > 0) {
                 display_errors(data.errors)
                 showPopup('message')
                 if (data.errors.message) {
